@@ -18,6 +18,7 @@ import type { DashboardDetailsResponse, ChatMessage, TabKey } from './types';
 // Componentes UI Atómicos
 import { Card } from '../../components/ui/Card';
 import { Badge } from '../../components/ui/Badge';
+import { AIAssistant } from './components/ai-assistant';
 import { KpiCard } from './components/kpi-card';
 
 // Pestañas Modulares
@@ -218,6 +219,16 @@ const PayrollViewer = () => {
           )}
         </div>
       </div>
+
+      <AIAssistant
+        messages={chatMessages}
+        input={chatInput}
+        setInput={setChatInput}
+        onSend={handleSendChat}
+        isLoading={isSendingChat}
+        isOpen={isAiOpen}
+        onToggle={() => setIsAiOpen(!isAiOpen)}
+      />
     </div>
   );
 };
